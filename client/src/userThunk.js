@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {createUser,signup} from './actions/allActions'
+import {createUser,signup,signin,getusers} from './actions/allActions'
 const URL = axios.create({
     baseURL:  'http://localhost:8080',
   });
@@ -7,7 +7,7 @@ const URL = axios.create({
 export const requestCreateUser= (newdata) => {
     return async(dispatch)=>{
     try{
-    const response=await URL.post(URL,newdata);
+    const response=await URL.post('/posts',newdata);
     
     dispatch(createUser(response.data));
     }catch(err){
@@ -32,12 +32,22 @@ export const signIn = (formdata) => {
     try{
     const signInData=await URL.post('/signin', formdata);
     
-    dispatch(signup(signInData.data));
+    dispatch(signin(signInData.data));
   } catch (error) {
     console.log(error);
   }
    }
 }
-
-
-
+export const requestgetusers=(state)=>{
+  return async(dispatch)=>{
+      try {
+          console.log(state)
+          const usersData=await URL.get("/getusers",state)
+          console.log(usersData)
+          dispatch(getusers(usersData.data))
+      } catch (error) {
+          console.log(error)
+          
+      }
+  }
+}

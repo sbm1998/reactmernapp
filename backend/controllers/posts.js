@@ -3,7 +3,7 @@ import postData from '../models/postData.js'
 export const getPosts= async(req,res)=>{
 //
     try{
-        const  postInformation= await postData.find();
+        const  postInformation= await postData.find({});
         console.log(postInformation)
         res.status(200).json(postInformation)
     }catch(error){
@@ -15,7 +15,7 @@ export const getPosts= async(req,res)=>{
 export const createPosts = async (req, res) => {
     const { name,email,city } = req.body;
 
-    const newPostMessage = new PostMessage({ name,email,city })
+    const newPostMessage = new postData({ name,email,city })
 
     try {
         await newPostMessage.save();

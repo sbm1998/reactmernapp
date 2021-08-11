@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage'
 import LoginForm from './components/LoginForm'
 import SignUpForm from './components/SignUpForm'
 import AddData from './components/AddData';
+import Users from './components/Users'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path='/login' exact component={LoginForm} />
       <Route path='/signup' exact component={SignUpForm}/>
       <Route path='/addData' exact component={AddData}/>
+      <Route path='/getusers' exact component={Users}/>
       </Switch>
       </BrowserRouter>
     </div>

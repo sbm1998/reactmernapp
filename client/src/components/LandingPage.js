@@ -7,6 +7,7 @@ const Welcome=()=>{
            {/*<button onClick={() => window.location.href = '/userform'}>User form</button>*/}
            <button onClick={() =>{history.push("/login");}}>Login</button>
            <button onClick={() =>{history.push("/signup");}}>signUp</button>
+           <button onClick={() =>{history.push("/getuser");}}>ShowUsers</button>
 
         </div>
     )

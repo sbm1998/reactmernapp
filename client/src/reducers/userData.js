@@ -1,7 +1,7 @@
-import {CREATE_USER,SIGN_IN,SIGN_UP} from '../actions/index'
+import {CREATE_USER,SIGN_IN,SIGN_UP,FETCH_ALL} from '../actions/index'
 
 const initialState={
-    users:{},
+    users:[],
 }
 
 export default function userData(state=initialState,action){
@@ -11,6 +11,12 @@ export default function userData(state=initialState,action){
                 ...state,
                 users:action.payload.users
             }
+        case FETCH_ALL:
+            return{
+                ...state,
+                users:action.payload,
+            }
+        
         case SIGN_IN :
             return{
                 ...state,
